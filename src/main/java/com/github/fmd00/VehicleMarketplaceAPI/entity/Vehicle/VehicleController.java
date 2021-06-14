@@ -1,27 +1,29 @@
 package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.Seller;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/vehicles")
 public class VehicleController {
-    private VehicleRepository vehicleRepository;
 
-    @Autowired
-    public VehicleController(VehicleRepository vehicleRepository) {
-        this.vehicleRepository = vehicleRepository;
+ private VehicleService vehicleService;
+
+    public VehicleController(VehicleService vehicleService) {
+        this.vehicleService = vehicleService;
     }
 
     @PostMapping
-    public MessageResponseDTO createVehicle(@RequestBody Vehicle vehicle) {
-        Vehicle savedVehicle = vehicleRepository.save(vehicle);
-        return MessageResponseDTO.builder()
-                .message("Created vehicle with id " + savedVehicle.getId()).build();
+    public MessageResponseDTO createVehicle(@RequestBody @Valid VehicleDTO vehicleDTO) {
+        return vehicleService.createVehicle(vehicleDTO);
+    }
+
+    @GetMapping
+    public List<VehicleDTO> listAll()
+    {
+        return vehicleService.listAll();
     }
 }
