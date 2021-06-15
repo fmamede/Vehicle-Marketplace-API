@@ -1,6 +1,7 @@
 package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
 
 import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.Seller;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.SellerDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,5 +57,5 @@ public class VehicleDTO {
     @ElementCollection
     private List<VehicleFeatures> vehicleFeaturesList;
 
-    private Seller seller;
+    private SellerDTO seller;
 }

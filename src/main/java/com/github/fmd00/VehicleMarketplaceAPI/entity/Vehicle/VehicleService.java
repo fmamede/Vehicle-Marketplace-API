@@ -1,6 +1,7 @@
 package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.exception.VehicleNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,5 +28,19 @@ public class VehicleService {
     public List<VehicleDTO> listAll() {
         List<Vehicle> allVehicles = vehicleRepository.findAll();
         return allVehicles.stream().map(vehicleMapper::toDTO).collect(Collectors.toList());
+    }
+
+    public VehicleDTO findById(Long id) throws VehicleNotFoundException {
+        Vehicle vehicle = verifyIfVehicleExists(id);
+        return vehicleMapper.toDTO(vehicle);
+    }
+
+    public void delete(Long id) throws VehicleNotFoundException {
+        verifyIfVehicleExists(id);
+        vehicleRepository.deleteById(id);
+    }
+
+    private Vehicle verifyIfVehicleExists(Long id) throws VehicleNotFoundException {
+        return vehicleRepository.findById(id).orElseThrow(() -> new VehicleNotFoundException(id));
     }
 }
