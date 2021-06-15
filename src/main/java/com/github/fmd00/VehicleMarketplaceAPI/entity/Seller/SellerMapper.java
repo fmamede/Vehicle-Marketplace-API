@@ -1,7 +1,6 @@
 package com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

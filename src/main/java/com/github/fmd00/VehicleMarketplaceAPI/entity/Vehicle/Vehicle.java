@@ -52,7 +52,7 @@ public class Vehicle {
     @ElementCollection
     private List<VehicleFeatures> vehicleFeaturesList;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seller", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "\"seller\"", referencedColumnName = "\"id\"")
     private Seller seller;
 }

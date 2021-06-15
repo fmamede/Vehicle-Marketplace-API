@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.ElementCollection;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -54,6 +55,6 @@ public class VehicleDTO {
 
     @ElementCollection
     private List<VehicleFeatures> vehicleFeaturesList;
-    
+
     private Seller seller;
 }

@@ -27,11 +27,4 @@ public class Seller {
 
 //    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 //    private List<Vehicle> vehicles;
-
-    @OneToMany(targetEntity = Vehicle.class, cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Vehicle> vehicles = new ArrayList<>();
-
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "seller")
-//    private List<Vehicle> vehicles;
 }
