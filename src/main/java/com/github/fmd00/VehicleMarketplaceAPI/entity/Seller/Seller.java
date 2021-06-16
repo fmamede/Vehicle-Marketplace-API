@@ -20,10 +20,15 @@ public class Seller {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "id", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+//    @OneToMany(mappedBy = "id", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+//    private List<Vehicle> vehicles/* = new ArrayList<>()*/;
+
+    @OneToMany(mappedBy = "id", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Vehicle> vehicles/* = new ArrayList<>()*/;
 }

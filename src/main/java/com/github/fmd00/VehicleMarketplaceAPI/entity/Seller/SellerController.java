@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sellers")
+@RequestMapping("/marketplace/sellers")
 public class SellerController {
 
     private SellerService sellerService;
@@ -42,4 +42,15 @@ public class SellerController {
         sellerService.delete(id);
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid SellerDTO sellerDTO) throws SellerNotFoundException {
+        return sellerService.updateById(id, sellerDTO);
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public MessageResponseDTO partiallyUpdateSellerById(@PathVariable Long id, @RequestBody @Valid PartialSellerDTO partialSellerDTO) throws SellerNotFoundException {
+        return sellerService.partiallyUpdateSellerById(id, partialSellerDTO);
+    }
 }
