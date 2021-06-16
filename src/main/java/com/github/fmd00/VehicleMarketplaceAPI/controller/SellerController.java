@@ -1,6 +1,9 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
+package com.github.fmd00.VehicleMarketplaceAPI.controller;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialSellerDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.SellerDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.service.SellerService;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.SellerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

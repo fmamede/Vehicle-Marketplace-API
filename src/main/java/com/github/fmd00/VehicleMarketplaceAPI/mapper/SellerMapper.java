@@ -1,5 +1,7 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
+package com.github.fmd00.VehicleMarketplaceAPI.mapper;
 
+import com.github.fmd00.VehicleMarketplaceAPI.dto.SellerDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

@@ -1,7 +1,5 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
+package com.github.fmd00.VehicleMarketplaceAPI.dto;
 
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.Seller;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.SellerDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.ElementCollection;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 

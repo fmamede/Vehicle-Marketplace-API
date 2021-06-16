@@ -1,6 +1,6 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
+package com.github.fmd00.VehicleMarketplaceAPI.entity;
 
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.Seller;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
 import com.github.fmd00.VehicleMarketplaceAPI.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

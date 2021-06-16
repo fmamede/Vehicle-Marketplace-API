@@ -1,8 +1,13 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
+package com.github.fmd00.VehicleMarketplaceAPI.service;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle.Vehicle;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialSellerDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.SellerDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.SellerNotFoundException;
+import com.github.fmd00.VehicleMarketplaceAPI.mapper.SellerMapper;
+import com.github.fmd00.VehicleMarketplaceAPI.repository.SellerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

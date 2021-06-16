@@ -1,8 +1,9 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
+package com.github.fmd00.VehicleMarketplaceAPI.controller;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle.PartialVehicleDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.exception.VehicleNotFoundException;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialVehicleDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.VehicleDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.service.VehicleService;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.VehicleNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

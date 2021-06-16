@@ -1,12 +1,15 @@
-package com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
+package com.github.fmd00.VehicleMarketplaceAPI.service;
 
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.Seller;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller.SellerMapper;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle.PartialVehicleDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle.Vehicle;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.VehicleDTO;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Seller;
+import com.github.fmd00.VehicleMarketplaceAPI.entity.Vehicle;
+import com.github.fmd00.VehicleMarketplaceAPI.mapper.SellerMapper;
+import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialVehicleDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.enums.*;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.VehicleNotFoundException;
+import com.github.fmd00.VehicleMarketplaceAPI.mapper.VehicleMapper;
+import com.github.fmd00.VehicleMarketplaceAPI.repository.VehicleRepository;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Max;
