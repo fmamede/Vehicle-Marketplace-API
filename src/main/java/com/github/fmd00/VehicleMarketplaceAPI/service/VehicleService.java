@@ -27,12 +27,17 @@ public class VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-    public MessageResponseDTO createVehicle(VehicleDTO vehicleDTO) {
+    public VehicleDTO createVehicle(VehicleDTO vehicleDTO) {
         Vehicle vehicleToSave = vehicleMapper.toModel(vehicleDTO);
 
         Vehicle savedVehicle = vehicleRepository.save(vehicleToSave);
-        return createMessageResponse(savedVehicle.getId(), "Created vehicle with id ");
+        return vehicleMapper.toDTO(savedVehicle);
     }
+
+    /*public MessageResponseDTO createVehicleAndReturnMessage(VehicleDTO vehicleDTO) {
+        VehicleDTO createdVehicle = createVehicle(vehicleDTO);
+        return createMessageResponse(createdVehicle.getId(), "Created vehicle with id ");
+    }*/
 
     public List<VehicleDTO> listAll() {
         List<Vehicle> allVehicles = vehicleRepository.findAll();
@@ -101,4 +106,6 @@ public class VehicleService {
                 .seller(tempSeller)
                 .build();
     }
+
+
 }

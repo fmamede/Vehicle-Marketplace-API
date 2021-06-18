@@ -15,20 +15,24 @@ import java.util.stream.Collectors;
 
 @Service
 public class SellerService {
-    private SellerRepository sellerRepository;
-
     private final SellerMapper sellerMapper = SellerMapper.INSTANCE;
+    private SellerRepository sellerRepository;
 
     public SellerService(SellerRepository sellerRepository) {
         this.sellerRepository = sellerRepository;
     }
 
-    public MessageResponseDTO createSeller(SellerDTO sellerDTO) {
+    public SellerDTO createSeller(SellerDTO sellerDTO) {
         Seller sellerToSave = sellerMapper.toModel(sellerDTO);
 
         Seller savedSeller = sellerRepository.save(sellerToSave);
-        return createMessageResponse(savedSeller.getId(), "Created seller with id ");
+        return sellerMapper.toDTO(savedSeller);
     }
+
+    /*public MessageResponseDTO createSellerAndReturnMessage(SellerDTO sellerDTO) {
+        SellerDTO createdSeller = createSeller(sellerDTO);
+        return createMessageResponse(createdSeller.getId(), "Created seller with id ");
+    }*/
 
     public List<SellerDTO> listAll() {
         List<Seller> allSellers = sellerRepository.findAll();

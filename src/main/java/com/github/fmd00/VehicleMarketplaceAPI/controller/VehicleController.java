@@ -3,8 +3,8 @@ package com.github.fmd00.VehicleMarketplaceAPI.controller;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialVehicleDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.VehicleDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.service.VehicleService;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.VehicleNotFoundException;
+import com.github.fmd00.VehicleMarketplaceAPI.service.VehicleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ public class VehicleController {
     }
 
     @PostMapping
-    public MessageResponseDTO createVehicle(@RequestBody @Valid VehicleDTO vehicleDTO) {
+    public VehicleDTO createVehicle(@RequestBody @Valid VehicleDTO vehicleDTO) {
         return vehicleService.createVehicle(vehicleDTO);
     }
 
@@ -37,7 +37,7 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws VehicleNotFoundException {
         vehicleService.delete(id);
     }

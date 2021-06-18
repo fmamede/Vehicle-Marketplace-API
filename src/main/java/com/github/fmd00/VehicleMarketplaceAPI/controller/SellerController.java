@@ -3,8 +3,8 @@ package com.github.fmd00.VehicleMarketplaceAPI.controller;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.MessageResponseDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.PartialSellerDTO;
 import com.github.fmd00.VehicleMarketplaceAPI.dto.SellerDTO;
-import com.github.fmd00.VehicleMarketplaceAPI.service.SellerService;
 import com.github.fmd00.VehicleMarketplaceAPI.exception.SellerNotFoundException;
+import com.github.fmd00.VehicleMarketplaceAPI.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class SellerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createSeller(@RequestBody @Valid SellerDTO sellerDTO) {
+    public SellerDTO createSeller(@RequestBody @Valid SellerDTO sellerDTO) {
         return sellerService.createSeller(sellerDTO);
     }
 
@@ -40,7 +40,7 @@ public class SellerController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws SellerNotFoundException {
         sellerService.delete(id);
     }
