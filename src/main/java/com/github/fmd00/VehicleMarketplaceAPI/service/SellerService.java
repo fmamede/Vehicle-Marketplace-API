@@ -29,11 +29,6 @@ public class SellerService {
         return sellerMapper.toDTO(savedSeller);
     }
 
-    /*public MessageResponseDTO createSellerAndReturnMessage(SellerDTO sellerDTO) {
-        SellerDTO createdSeller = createSeller(sellerDTO);
-        return createMessageResponse(createdSeller.getId(), "Created seller with id ");
-    }*/
-
     public List<SellerDTO> listAll() {
         List<Seller> allSellers = sellerRepository.findAll();
         return allSellers.stream().map(sellerMapper::toDTO).collect(Collectors.toList());

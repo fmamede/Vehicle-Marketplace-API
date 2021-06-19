@@ -25,9 +25,6 @@ public class Seller {
     @Column(nullable = false)
     private String phoneNumber;
 
-//    @OneToMany(mappedBy = "id", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-//    private List<Vehicle> vehicles/* = new ArrayList<>()*/;
-
     @OneToMany(mappedBy = "id", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Vehicle> vehicles/* = new ArrayList<>()*/;
+    private List<Vehicle> vehicles;
 }

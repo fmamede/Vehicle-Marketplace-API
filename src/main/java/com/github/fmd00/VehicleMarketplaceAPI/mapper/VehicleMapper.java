@@ -11,8 +11,8 @@ public interface VehicleMapper {
 
     Vehicle toModel(VehicleDTO vehicleDTO);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateVehicle(@MappingTarget Vehicle vehicle, VehicleDTO vehicleDTO);
+//    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+//    void updateVehicle(@MappingTarget Vehicle vehicle, VehicleDTO vehicleDTO);
 
     @Mapping(target = "seller", source = "seller")
     VehicleDTO toDTO(Vehicle vehicle);

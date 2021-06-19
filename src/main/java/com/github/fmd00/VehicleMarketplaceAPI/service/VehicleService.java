@@ -34,11 +34,6 @@ public class VehicleService {
         return vehicleMapper.toDTO(savedVehicle);
     }
 
-    /*public MessageResponseDTO createVehicleAndReturnMessage(VehicleDTO vehicleDTO) {
-        VehicleDTO createdVehicle = createVehicle(vehicleDTO);
-        return createMessageResponse(createdVehicle.getId(), "Created vehicle with id ");
-    }*/
-
     public List<VehicleDTO> listAll() {
         List<Vehicle> allVehicles = vehicleRepository.findAll();
         return allVehicles.stream().map(vehicleMapper::toDTO).collect(Collectors.toList());
@@ -54,21 +49,12 @@ public class VehicleService {
         vehicleRepository.deleteById(id);
     }
 
-    private Vehicle verifyIfVehicleExists(Long id) throws VehicleNotFoundException {
-        return vehicleRepository.findById(id).orElseThrow(() -> new VehicleNotFoundException(id));
-    }
-
     public MessageResponseDTO updateById(Long id, VehicleDTO vehicleDTO) throws VehicleNotFoundException {
         verifyIfVehicleExists(id);
         Vehicle vehicleToUpdate = vehicleMapper.toModel(vehicleDTO);
 
         Vehicle savedVehicle = vehicleRepository.save(vehicleToUpdate);
         return createMessageResponse(savedVehicle.getId(), "Updated vehicle with id ");
-    }
-
-    private MessageResponseDTO createMessageResponse(Long id, String s) {
-        return MessageResponseDTO.builder()
-                .message(s + id).build();
     }
 
     public MessageResponseDTO partiallyUpdateVehicleById(Long id, PartialVehicleDTO partialVehicleDTO) throws VehicleNotFoundException {
@@ -78,6 +64,15 @@ public class VehicleService {
 
         Vehicle savedVehicle = vehicleRepository.save(vehicleToUpdate);
         return createMessageResponse(savedVehicle.getId(), "Updated vehicle with id ");
+    }
+
+    private Vehicle verifyIfVehicleExists(Long id) throws VehicleNotFoundException {
+        return vehicleRepository.findById(id).orElseThrow(() -> new VehicleNotFoundException(id));
+    }
+
+    private MessageResponseDTO createMessageResponse(Long id, String s) {
+        return MessageResponseDTO.builder()
+                .message(s + id).build();
     }
 
     private Vehicle partiallyUpdateVehicle(PartialVehicleDTO vehicleDTO, Vehicle vehicle) {
@@ -106,6 +101,4 @@ public class VehicleService {
                 .seller(tempSeller)
                 .build();
     }
-
-
 }

@@ -47,9 +47,4 @@ public class VehicleDTOBuilder {
     public VehicleDTO toVehicleDTO() {
         return new VehicleDTO(id, make, model, year, price, vehicleType, drivetrainType, transmissionType, vehicleColor, vehicleFeaturesList, sellerDTO);
     }
-
-    /*public VehicleDTO toVehicleDTO() {
-        return new VehicleDTO(id, make, model, year, price, vehicleType, drivetrainType, transmissionType, vehicleColor);
-    }*/
-
 }
