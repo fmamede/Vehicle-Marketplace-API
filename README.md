@@ -6,7 +6,7 @@ The following are required to run the project:
 
 All available operations: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/491137ae7bd15a3fcaa0?action=collection%2Fimport)
 
-To run the project navigate to its root folder and use the following command:
+To run the project navigate to it's root folder and use the following command:
 
 ```shell script
 mvn spring-boot:run 
